@@ -183,6 +183,43 @@ class CashCenter(object):
             if len(dm_capacity) != self._n_dms or len(dm_cassette) != self._n_dms:
                 sys.exit('len(dm_capacity) != self._n_dms or len(dm_cassette) != self._n_dms')
 
+            self._dm_predictions_banknotes = None
+            self._dm_predictions_money = None
+            self._dm_facts_banknotes = None
+            self._dm_facts_money = None
+            self._dm_initial_balances_banknotes = None
+            self._dm_initial_balances_money = None
+            self._dm_cost_encash = None
+            self._dm_cost_kassa = None
+            self._dm_first_encash_mask = None
+            self._dm_availability_mask = None
+            self._dm_atm_state_mask = None
+            self._dm_full_mask = None
+
+            self.dm_table = None
+
+            self._dm_intraday_distribution = None
+            self._dm_intraday_facts_money = None
+            self._dm_intraday_facts_banknotes = None
+            self._dm_intraday_predictions_money = None
+            self._dm_intraday_predictions_banknotes = None
+            print('DM BLOCK: +')
+        else:
+            self.dm_ids = None
+            self.dm_capacity = None
+            self.dm_cassette = None
+            print('DM BLOCK: -')
+
+        self.ipt_ids = ipt_ids
+        self.ipt_capacity = ipt_capacity
+        self.ipt_cassette = ipt_cassette
+
+        if ipt_ids is not None and ipt_capacity is not None and ipt_cassette is not None:
+            self._n_ipts = len(ipt_ids)
+            self._devices_order.append('ipt')
+            if len(ipt_capacity) != self._n_ipts or len(ipt_cassette) != self._n_ipts:
+                sys.exit('len(ipt_capacity) != self._n_ipts or len(ipt_cassette) != self._n_ipts')
+
             self._ipt_predictions_banknotes = None
             self._ipt_predictions_money = None
             self._ipt_facts_banknotes = None
