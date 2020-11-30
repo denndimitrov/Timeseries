@@ -183,18 +183,6 @@ class CashCenter(object):
             if len(dm_capacity) != self._n_dms or len(dm_cassette) != self._n_dms:
                 sys.exit('len(dm_capacity) != self._n_dms or len(dm_cassette) != self._n_dms')
 
-            self._dm_predictions_banknotes = None
-            self._dm_predictions_money = None
-            self._dm_facts_banknotes = None
-            self._dm_facts_money = None
-            self._dm_initial_balances_banknotes = None
-            self._dm_initial_balances_money = None
-            self._dm_cost_encash = None
-            self._dm_cost_kassa = None
-            self._dm_first_encash_mask = None
-            self._dm_availability_mask = None
-            self._dm_atm_state_mask = None
-            self._dm_full_mask = None
 
             self.dm_table = None
 
